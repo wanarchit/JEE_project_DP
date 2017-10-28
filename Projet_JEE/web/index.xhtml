@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Page d'acceuil</title>
+    </h:head>
+    <h:body>
+        Bienvenue sur la page d'acceuil :)
+        <p:dataList value = "#{employeControleur.employes}" var="emp" type="unordered" id="l">
+            <p:inputText value = "#{emp.numSS}"/>
+            <p:inputText value = "#{emp.nom}"/>
+            <p:inputText value = "#{emp.prenom}"/>
+            <p:inputText value = "#{emp.displayDate(emp.dateNaissance)}"/>
+            <p:inputText value = "#{emp.displaySexe(emp.sexe)}"/>
+            <p:inputText value = "#{emp.adresse}"/>
+            <p:inputText value = "#{emp.login}"/>
+            <p:inputText value = "#{emp.mdp}"/>
+            <p:inputText value = "#{emp.mail}"/>
+            <p:inputText value = "#{emp.IDent.nomEnt}"/>
+        </p:dataList>
+        
+        <p:dataList value = "#{entrepriseControleur.entreprises}" var="ent" type="unordered" id="l">
+            <p:inputText value = "#{ent.IDent}"/>
+            <p:inputText value = "#{ent.nomEnt}"/>
+            <p:inputText value = "#{ent.adresseEnt}"/>
+        </p:dataList>
+        
+        <p:dataList value = "#{absenceControleur.absences}" var="abs" type="unordered" id="l">
+            <p:inputText value = "#{abs.IDabsence}"/>
+            <p:inputText value = "#{abs.motif}"/>
+            <p:inputText value = "#{abs.displayDateD(abs.dateDabs)}"/>
+            <p:inputText value = "#{abs.displayDateF(abs.dateFabs)}"/>
+            <p:inputText value = "#{abs.displayAbsVal(abs.absValidee)}"/>
+            <p:inputText value = "#{abs.numSS.prenom} #{abs.numSS.nom}"/>
+        </p:dataList>
+        
+        <p:dataList value = "#{contratControleur.contrats}" var="ct" type="unordered" id="l">
+            <p:inputText value = "#{ct.IDcontrat}"/>
+            <p:inputText value = "#{ct.numSS.prenom} #{ct.numSS.nom}"/>
+            <p:inputText value = "#{ct.service}"/>
+            <p:inputText value = "#{ct.poste}"/>
+            <p:inputText value = "#{ct.displayDateD(ct.dateDcontrat)}"/>
+            <p:inputText value = "#{ct.displayDateF(ct.dateFcontrat)}"/>
+            <p:inputText value = "#{ct.salaireBrut} €"/>
+            <p:inputText value = "#{ct.congesAnn} congés/an"/>
+            <p:inputText value = "#{ct.heuresMens} h/m"/>
+            <p:inputText value = "#{ct.displayCtVal(ct.contratValidee)}"/>
+        </p:dataList>
+        
+        <p:dataList value = "#{fichePayeControleur.fichePayes}" var="fp" type="unordered" id="l">
+            <p:inputText value = "#{fp.IDfiche}"/>
+            <p:inputText value = "#{fp.numSS.prenom} #{fp.numSS.nom}"/>
+            <p:inputText value = "#{fp.displayDateFP(fp.dateBs)}"/>
+            <p:inputText value = "#{fp.prime} €"/>
+            <p:inputText value = "#{fp.displayFPVal(fp.ficheValidee)}"/>
+        </p:dataList>
+        
+        <p:dataList value = "#{reservationControleur.reservations}" var="resa" type="unordered" id="l">
+            <p:inputText value = "#{resa.IDresa}"/>
+            <p:inputText value = "#{resa.numSS.prenom} #{resa.numSS.nom}"/>
+            <p:inputText value = "#{resa.displayDateD(resa.dateD)}"/>
+            <p:inputText value = "#{resa.displayDateF(resa.dateF)}"/>
+            <p:inputText value = "#{resa.plaque.plaque}"/>
+            <p:inputText value = "#{resa.plaque.marque} #{resa.plaque.modele}"/>
+            <p:inputText value = "#{resa.etat}"/>
+        </p:dataList>
+        
+        <p:dataList value = "#{voitureControleur.voitures}" var="voi" type="unordered" id="l">
+            <p:inputText value = "#{voi.plaque}"/>
+            <p:inputText value = "#{voi.marque}"/>
+            <p:inputText value = "#{voi.modele}"/>
+            <p:inputText value = "#{voi.kilometrage} km"/>
+            <p:inputText value = "#{voi.displayDispoVal(voi.disponibilite)}"/>
+            <p:inputText value = "#{voi.displayDateRevision(voi.dateProchRevision)}"/>
+        </p:dataList>
+        
+    </h:body>
+</html>
+
